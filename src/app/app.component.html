@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-container>
+    <md-sidenav #sidenav>
+        <app-sidemenu></app-sidemenu>
+    </md-sidenav>
+
+    <md-toolbar color="primary">
+        <button md-button (click)="sidenav.open()"><md-icon>menu</md-icon></button>
+
+        {{title}}
+    </md-toolbar>
+    <md-list>
+        <md-list-item class="text" *ngFor="let char of characters | async">
+            {{char.$value}}
+        </md-list-item>
+    </md-list>
+</md-sidenav-container>
