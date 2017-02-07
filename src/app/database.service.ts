@@ -1,22 +1,26 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFire} from "angularfire2";
 
 @Injectable()
 export class DatabaseService {
 
-  constructor(private database: AngularFire) { }
+    constructor(public database: AngularFire) {
+    }
 
-  login() {
-      // this.database.auth.login();
-      console.log("Hi from the service!")
-  }
+    login() {
+        // this.database.auth.login();
+        console.log("Hi from the service!")
+    }
 
-  register() {
+    register() {
 
-  }
+    }
 
-  logout() {
-      // this.database.auth.logout();
-  }
+    logout() {
+        // this.database.auth.logout();
+    }
 
+    googleLogin():void {
+        this.database.auth.login();
+    }
 }

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {DatabaseService} from "../database.service";
 
 @Component({
     selector: 'app-char-builder',
@@ -18,9 +19,10 @@ export class CharBuilderComponent implements OnInit {
         {value: "useless-4", className: "Leroy Jenkins", description: "The character that just screws up everything"}
     ];
 
-    constructor() {
+    constructor(private dbService: DatabaseService) {
     }
 
     ngOnInit() {
+        console.log(this.dbService.database.auth.getAuth());
     }
 }
