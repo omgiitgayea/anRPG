@@ -8,6 +8,7 @@ import "hammerjs";
 
 import {AppComponent} from './app.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { CharBuilderComponent } from './char-builder/char-builder.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCaFpifiBHt8a7JDRNcyQOlWtFExswm_4k",
@@ -20,7 +21,8 @@ export const firebaseConfig = {
 @NgModule({
     declarations: [
         AppComponent,
-        SidemenuComponent
+        SidemenuComponent,
+        CharBuilderComponent
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,32 @@
+<md-card class="mycard">
+    <md-card-header>
+        <md-card-title>
+            Let there be life!!
+        </md-card-title>
+
+        <md-card-subtitle>
+            So you want to be a hero...
+        </md-card-subtitle>
+    </md-card-header>
+
+    <md-card-content>
+        <form>
+            <md-input-container color="accent">
+                <input md-input placeholder="Character Name">
+            </md-input-container>
+
+            <md-radio-group>
+                <md-radio-button value="1">Female</md-radio-button>
+                <md-radio-button value="2">Male</md-radio-button>
+                <md-radio-button value="3">Asexual</md-radio-button>
+            </md-radio-group>
+
+            <md-select placeholder="Choose your class" [(ngModel)]="selectedClass" name="class">
+                <md-option *ngFor="let charClass of charClasses" [value]="charClass.value">
+                    {{charClass.className}}
+                </md-option>
+            </md-select>
+            <p>You chose {{selectedClass}}</p>
+        </form>
+    </md-card-content>
+</md-card>
