@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialog} from "@angular/material";
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-sidemenu',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidemenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+  startLogin(): void {
+      this.dialog.open(LoginComponent)
   }
 
 }

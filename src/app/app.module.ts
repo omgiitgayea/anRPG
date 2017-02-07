@@ -9,6 +9,11 @@ import "hammerjs";
 import {AppComponent} from './app.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { CharBuilderComponent } from './char-builder/char-builder.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
+
+import {DatabaseService} from "./database.service"
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCaFpifiBHt8a7JDRNcyQOlWtFExswm_4k",
@@ -22,7 +27,10 @@ export const firebaseConfig = {
     declarations: [
         AppComponent,
         SidemenuComponent,
-        CharBuilderComponent
+        CharBuilderComponent,
+        LoginComponent,
+        RegisterComponent,
+        LogoutComponent
     ],
     imports: [
         BrowserModule,
@@ -31,8 +39,13 @@ export const firebaseConfig = {
         AngularFireModule.initializeApp(firebaseConfig),
         MaterialModule.forRoot()
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+    providers: [DatabaseService],
+    bootstrap: [AppComponent],
+    entryComponents: [
+        LoginComponent,
+        LogoutComponent,
+        RegisterComponent
+    ]
 })
 export class AppModule {
 }
