@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DatabaseService} from "../database.service";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: 'app-char-builder',
@@ -10,6 +11,8 @@ export class CharBuilderComponent implements OnInit {
     selectedClass: string;
     myClass: string;
     myClassDesc: string;
+    userName: string;
+    loggedInSubscription: Subscription;
 
     charClasses = [
         {value: "tank-0", className: "A tank", description: "Ya know, a tank"},
@@ -20,9 +23,18 @@ export class CharBuilderComponent implements OnInit {
     ];
 
     constructor(private dbService: DatabaseService) {
+        this.loggedInSubscription = dbService.amLoggedIn$.subscribe(
+            updateStatus => {
+                if(updateStatus.authObject) {
+                    this.userName = updateStatus.authObject.google.displayName;
+                }
+                else {
+                    this.userName = null;
+                }
+            }
+        )
     }
 
     ngOnInit() {
-        console.log(this.dbService.database.auth.getAuth());
     }
 }

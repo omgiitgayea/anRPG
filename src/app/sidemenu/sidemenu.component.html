@@ -14,10 +14,16 @@
             Register
         </button>
     </div>
-    <div class="centered">
+    <div class="centered" *ngIf="!loggedIn">
         <button md-raised-button class="mybutton" (click)="googleLogin()">
             <md-icon>person</md-icon>
             Login with Google
+        </button>
+    </div>
+    <div class="centered" *ngIf="loggedIn">
+        <button md-raised-button class="mybutton" (click)="googleLogout()">
+            <md-icon>person</md-icon>
+            Sign out of Google
         </button>
     </div>
 </div>

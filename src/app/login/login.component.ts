@@ -8,6 +8,8 @@ import {DatabaseService} from "../database.service";
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+    login: string;
+    password: string;
 
     constructor(public dialogRef: MdDialogRef<LoginComponent>, public snackBar: MdSnackBar, private dbService: DatabaseService) {
     }
@@ -16,8 +18,11 @@ export class LoginComponent implements OnInit {
     }
 
     onClick(): void {
-        this.dbService.login();
-        this.dialogRef.close();
-        this.snackBar.open("Hey, you logged in!", "", {duration: 1000})
+        if (this.login && this.password) {
+            this.dbService.login(this.login, this.password);
+            this.dialogRef.close();
+            this.snackBar.open("Hey, you logged in!", "", {duration: 1000})
+        }
+
     }
 }
