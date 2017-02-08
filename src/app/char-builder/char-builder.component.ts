@@ -33,6 +33,7 @@ export class CharBuilderComponent implements OnInit {
                 }
             }
         )
+
     }
 
     ngOnInit() {
